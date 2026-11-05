@@ -10,6 +10,10 @@ public record ApiResponse<T>(
     public static <T> ApiResponse<T> success(T result) {
         return new ApiResponse<>(true, "COMMON_200", "요청에 성공했습니다.", result);
     }
+
+    public static <T> ApiResponse<T> success(String message, T result) {
+        return new ApiResponse<>(true, "COMMON_200", message, result);
+    }
     //데이터가 없는 성공 응답 (오버로딩)
     public static <T> ApiResponse<T> success() {
         return new ApiResponse<>(true, "COMMON_200", "요청에 성공했습니다.", null);
